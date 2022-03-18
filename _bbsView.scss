@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+.bbsView {
+  width: 1000px;
+  margin: 0 auto;
+  &__title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .tit {
+      width: 771px;
+      font-size: 30px;
+      @include font("bold");
+    }
+    .info {
+      font-size: 14px;
+      span+span {
+        display: inline-block;
+        margin-left: 20px;
+      }
+    }
+  }
+  &__content {
+    margin-top: 40px;
+    &.-line {
+      border-bottom:1px solid #8D7B5F;
+      padding-bottom: 80px;
+      margin-bottom: 80px;
+      .txt {
+        white-space: pre-line;
+        line-height: 30px;
+        color: #696969;
+      }
+    }
+  }
+}
+
+.comment {
+  margin-top: 63px;
+  &__list {
+    border-top: 1px solid #8D7B5F;
+    margin-top: 60px;
+  }
+  &__item {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 40px 0;
+    border-bottom: 1px solid #8D7B5F;
+    font-size: 17px;
+    justify-content: space-between;
+    .num {
+      width: 76px;
+      text-align: center;
+      @include font("bold");
+    }
+    .name {
+      width: 150px;
+      text-align: center;
+    }
+    .txt {
+      width: 745px;
+    }
+
+  }
+  &__title {
+    font-size: 17px;
+    @include font("bold");
+  }
+  &__inp {
+    display: flex;
+    margin-top: 23px;
+    textarea {
+      border:1px solid #B2B2B2;
+      background: #f6f6f6;
+      width: 864px;
+      resize: none;
+
+    }
+    .btn {
+      width: 138px;
+      height: 118px;
+      line-height: 118px;
+      background: #252525;
+      color: #fff;
+      text-align: center;
+    }
+  }
+
+}

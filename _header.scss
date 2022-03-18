@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+.topHeader {
+  width:100%;
+  min-width:1100px;
+  position:relative;
+  z-index:100;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.08);
+  &__main {
+    text-align: center;
+    position: relative;
+    height:90px;
+    padding-top:31.5px;
+    border-bottom:1px solid #DBDBDB;
+  }
+  &__logo {
+    @include txtHidden();
+    width:273px;
+    height:22px;
+    display:block;
+    background:url("/images/common/top_logo.png") no-repeat 0 0;
+    margin:0 auto;
+  }
+  .topUtil {
+    position: absolute;
+    right: 80px;
+    top:38px;
+    a {
+      font-size:10px;
+      color: #B2B2B2;
+      @include font("bold");
+      +a {
+        margin-left: 20px;
+      }
+    }
+  }
+
+}
+

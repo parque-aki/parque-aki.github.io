@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+.selectBox {
+  display:inline-block;
+  position:relative;
+  min-width:200px;
+  height:40px;
+  border:1px solid $white-two;
+  vertical-align: middle;
+  background-color:#fff;
+  .inp {
+    min-height:38px;
+  }
+  &__inp {
+    display:inline-block;
+    min-width:200px;
+    height:38px;
+    padding:0 35px 0 15px;
+    font-size:16px;
+    color:$black-three;
+    border:none;
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    position:relative;
+    z-index:10;
+    background: none;
+    &::-ms-expand{
+      display:none;
+    }
+  }
+  .iconSelectBox {
+    display:block;
+    position: absolute;
+    right:10px;
+    top:15px;
+  }
+  &.-disabled {
+    pointer-events: none;
+    color:#999;
+    border: solid 1px $white-two;
+    select.inp {
+      background-color: #f8f8f8;
+      color:$pinkish-grey-two;
+    }
+    .iconSelectBox {
+      @include iconSelectArrow();
+    }
+  }
+}

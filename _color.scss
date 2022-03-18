@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+$black: #212121;
+$warm-grey: #717171;
+$medium-blue: #2d71c4;
+$pinkish-grey: #cdcdcd;
+$pale-grey: #f6f8f9;
+$white: #eaeaea;
+$charcoal-grey: #2e3235;
+$greyish: #b9b9b9;
+$white-two: #dddddd;
+$pale-grey-two: #dce3e8;
+$white-three: #bfbfbf;
+$black-two: #222222;
+$dusky-blue: #4e619d;
+$faded-red: #dc495a;
+$pale-grey-three: #f6f6f8;
+$black-three: #333333;
+$dark-sky-blue: #23aaea;
+$warm-grey-two: #999999;
+$warm-grey-three: #868686;
+$warm-grey-four: #777777;
+$tomato: #ed4d3d;
+$white-four: #e4e4e4;
+$lipstick: #c9152f;
+$nice-blue: #196fc7;
+$brownish-grey: #666666;
+$nice-blue-two: #1065c5;
+$cadet-blue: #556699;
+$white-five: #f6f6f6;
+$white-six: #ffffff;
+$stormy-blue: #54759c;
+$white-seven: #e1e1e1;
+$seaweed: #11d081;
+$pinkish-grey-two: #cccccc;
+$silver:#b9bec3;
+$lightblue:#7cb5ec;
+$light-navy: #11335d;
+$dark-sky-blue-two:#4793dc;
+$greyish-brown:#555555;
+$silver-two:#c0c4c9;
+$purpleish-blue:#575cf2;
+$greyish-brown-two:#3a3026;
+//미션
+$sun-yellow:#feda3c;
+$black-four:#313131;
+$milk-chocolate:#704424;
+
+@mixin colorSet($colorName,$color) {
+  .#{$colorName} {
+    color:$color !important;
+  }
+}
+@include colorSet(black,$black)
+@include colorSet(warm-grey,$warm-grey);
+@include colorSet(medium-blue,$medium-blue);
+@include colorSet(pinkish-grey,$pinkish-grey)
+@include colorSet(pale-grey,$pale-grey)
+@include colorSet(white,$white)
+@include colorSet(charcoal-grey,$charcoal-grey)
+@include colorSet(greyish,$greyish)
+@include colorSet(white-two,$white-two)
+@include colorSet(pale-grey-two,$pale-grey-two)
+@include colorSet(white-three,$white-three)
+@include colorSet(black-two,$black-two)
+@include colorSet(dusky-blue,$dusky-blue)
+@include colorSet(faded-red,$faded-red)
+@include colorSet(pale-grey-three,$pale-grey-three)
+@include colorSet(black-three,$black-three)
+@include colorSet(dark-sky-blue,$dark-sky-blue)
+@include colorSet(warm-grey-two,$warm-grey-two)
+@include colorSet(warm-grey-three,$warm-grey-three)
+@include colorSet(warm-grey-four,$warm-grey-four)
+@include colorSet(tomato,$tomato)
+@include colorSet(white-four,$white-four)
+@include colorSet(lipstick,$lipstick)
+@include colorSet(nice-blue,$nice-blue)
+@include colorSet(brownish-grey,$brownish-grey)
+@include colorSet(nice-blue-two,$nice-blue-two)
+@include colorSet(cadet-blue,$cadet-blue)
+@include colorSet(white-five,$white-five)
+@include colorSet(white-six,$white-six)
+@include colorSet(stormy-blue,$stormy-blue)
+@include colorSet(white-seven,$white-seven)
+@include colorSet(seaweed,$seaweed)
+@include colorSet(pinkish-grey-two,$pinkish-grey-two)
+@include colorSet(silver,$silver)
+@include colorSet(lightblue,$lightblue)
+@include colorSet(light-navy,$light-navy)
+@include colorSet(dark-sky-blue-two,$dark-sky-blue-two)
+@include colorSet(greyish-brown,$greyish-brown)
+@include colorSet(silver-two,$silver-two)
+@include colorSet(purpleish-blue,$purpleish-blue)
+@include colorSet(greyish-brown-two,$greyish-brown-two)
+@include colorSet(sun-yellow,$sun-yellow)
+@include colorSet(black-four,$black-four)
+@include colorSet(milk-chocolate,$milk-chocolate)
+
+
+.colorRed {color:$lipstick !important;}
+.colorBlue {color:$nice-blue !important;}
+.glowBlue {
+  position:relative;
+  z-index:1;
+  &:after {
+    content:"";
+    width:100%;
+    height:50%;
+    display: block;
+    position:absolute;
+    background:#34a0e1;
+    left:0;
+    bottom:0;
+    z-index:-1;
+  }
+}
+
+
+
+
+$pointRed:#BA4B4B;
+$pointGray:#9BA5AF;

@@ -1,0 +1,59 @@
+@charset "UTF-8";
+.winPop {
+  border:none;
+  padding:0;
+  margin:0;
+  vertical-align: top;
+  img {border:none;vertical-align: top}
+  background:$black-four;
+  overflow:hidden;
+  &__content {
+    text-align:center;
+  }
+  &__footer {
+    width:100%;
+    background:$black-four;
+    height:42px;
+    vertical-align: middle;
+    font-size:15px;
+    color:$white-six;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 19px 0 15px;
+  }
+  &__close {
+    display:inline-block;
+    @include txtHidden;
+    background:url("/images/main/win_close.png") no-repeat 0 0;
+    width:47px;
+    height:15px;
+  }
+  &__label {
+    @include before-middle;
+  }
+  &__chk {
+    display:inline-block;
+    width:15px;
+    height:15px;
+    background:#fff;
+    border:none;
+    vertical-align: middle;
+    position: relative;
+    &:checked {
+      &:after {
+        content: "";
+        display:block;
+        position: absolute;
+        left:1px;
+        top:0;
+        background:url("/images/main/win_chk.png") no-repeat 0 0;
+        width:14px;
+        height:13px;
+      }
+    }
+  }
+  &__txt {
+    vertical-align: middle;
+  }
+}

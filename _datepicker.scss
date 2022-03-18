@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.ui-datepicker {
+  .ui-datepicker-next span {
+    @include iconRoundArrow();
+    margin-left:-15px;
+  }
+  .ui-datepicker-prev span {
+    @include iconRoundArrow();
+    transform: rotate(180deg);
+  }
+}
+.ui-datepicker-trigger {
+  display:inline-block;
+  vertical-align: middle;
+}
+
+.datepicker__arrow {
+  font-size:18px;
+  vertical-align: middle;
+  color:$warm-grey-four;
+  display:inline-block;
+  margin:0 10px;
+}

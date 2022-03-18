@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+.subPageTop {
+  width: 1000px;
+  height: 250px;
+  margin: 33px auto 0;
+  position: relative;
+  &__tit {
+    font-family: hs;
+    font-size:136px;
+    color: $pointGray;
+    display: inline-block;
+  }
+  &__menu {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 50px;
+    .tit {
+      font-family: esa-bold;
+      font-size:27px;
+      color:#252525;
+    }
+    .menu {
+      border-top:3px solid $pointRed;
+      padding-top: 20px;
+      margin-top: 20px;
+      &__item {
+        font-size:14px;
+        @include font("bold");
+        display: inline-block;
+        color: #808080;
+        &.-active {
+          color: #252525;
+        }
+        +.menu__item {
+          margin-left: 50px;
+        }
+      }
+    }
+
+  }
+  &:after {
+    content: "";
+    display: inline-block;
+    background: url("/images/main/bottom_logo.png");
+    width: 107px;
+    height: 52px;
+    position: absolute;
+    right: 0;
+    top: 25px;
+    background-size: cover;
+  }
+}
+
+.sns {
+  margin-top:35px;
+  &__inner {
+    text-align: right;
+    font-size: 0;
+  }
+  &__item {
+    display: inline-block;
+    vertical-align: middle;
+    +.sns__item {
+      margin-left: 10px;
+    }
+    &.-item01 {
+      @include sns01();
+    }
+    &.-item02 {
+      @include sns02();
+    }
+    &.-item03 {
+      @include sns03();
+    }
+    &.-item04 {
+      @include sns04();
+    }
+  }
+}

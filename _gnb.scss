@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+.gnb {
+  background: #fff;
+  &__inner {
+    display: flex;
+    height:45px;
+    justify-content: center;
+    align-items: center;
+    gap:80px;
+  }
+  &__item {
+    height: 100%;
+    font-size:14px;
+    color:#808080;
+    @include font("bold");
+    display: inline-block;
+    vertical-align: middle;
+    &:after {
+      display: inline-block;
+      height: 100%;
+      content: '';
+      vertical-align: middle;
+    }
+  }
+}

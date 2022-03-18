@@ -1,0 +1,222 @@
+@charset "UTF-8";
+label {cursor:pointer}
+.topSelectBox {
+  text-align:center;
+  &__subTit {
+    font-size:17px;
+    @include font("medium");
+    letter-spacing:-0.43px;
+    color:$black-two;
+    line-height:1;
+    text-align:left;
+    width:1100px;
+    margin:29px auto 0;
+    min-height:24px;
+    span+span {
+      &:before {
+        content:"";
+        display:inline-block;
+        margin:0 15px;
+        width:1px;
+        height:14px;
+        background:#d9d9d9;
+        position:relative;
+      }
+    }
+  }
+  &__inner {
+    width:1100px;
+    display:inline-block;
+    padding:35px 30px;
+    background:$white-six;
+    border-radius:12px;
+    box-shadow:5.9px 8.1px 16.4px 1.6px rgba(201, 201, 201, 0.16);
+    text-align:left;
+  }
+  .btn {
+    height:40px;
+    line-height:40px;
+    margin-left:-3px;
+    font-size:15px;
+    min-width:150px;
+  }
+  .openChk:checked+label { //상세검색-활성
+    .iconRoundArrow {
+      transform:rotate(270deg);
+    }
+    &+.topSelectBox__more {
+      display:block;
+    }
+  }
+  .openChk+label  { //상세검색-비활성
+    display: block;
+    margin-top: 28px;
+    padding-top: 25px;
+    text-align: right;
+    border-top:1px solid $white;
+    font-size:18px;
+    color:$black-two;
+    @include clearFix();
+    &:before, &:after {
+      content:none;
+    }
+  }
+  .fa {
+    position:relative;
+    top:-1px;
+    margin-right:5px;
+    font-size:15px;
+    display:inline-block;
+  }
+  .selectBox:not(:first-of-type) {
+    border-left:none;
+  }
+
+  .inp {
+    height:38px;
+    min-width:0;
+  }
+  &__tit {
+    font-size:16px;
+    color:$warm-grey-four;
+    display:inline-block;
+    margin:0 12px 0 19px;
+    vertical-align:middle;
+  }
+  &.-list {
+    position:relative;
+    .btn.-mediumBlue {
+      width:130px;
+      min-width:auto;
+      border-radius:6px;
+      margin-left:9px;
+    }
+    .topSelectBox {
+      &__radio:checked+.topSelectBox__chkMon {
+        z-index:1;
+        position:relative;
+        border-color:$medium-blue;
+        color:$medium-blue;
+      }
+      &__chkMon {
+        width:70px;
+        height:40px;
+        line-height:40px;
+        text-align:center;
+        display:inline-block;
+        font-size:16px;
+        color:$pinkish-grey-two;
+        border:1px solid $white-two;
+        vertical-align:middle;
+        cursor:pointer;
+        &:not(:first-of-type) {
+          margin-left:-1px;
+        }
+        &:first-of-type {
+           margin-left:20px;
+         }
+      }
+    }
+    [class^="icon"] {display:inline-block;}
+    .datepicker__arrow {
+      margin:0 4px 0 5px;
+    }
+    .iconRoundArrow {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left:7px;
+      margin-top: -2px;
+      transition:all .3s;
+      transform:rotate(90deg);
+    }
+    .hasDatepicker {
+      padding:0 30px 0 9px;
+    }
+    .ui-datepicker-trigger {
+      margin-left:-28px;
+      margin-right:9px;
+    }
+  }
+  &__more {
+    display:none;
+    position:absolute;
+    left:50%;
+    top:auto;
+    margin-left:-550px;
+    width:1100px;
+    border-radius:0 0 12px 12px;
+    box-shadow:5.9px 8.1px 16.4px 1.6px rgba(201, 201, 201, 0.16);
+    background-color:$white-six;
+    z-index:1;
+    padding:0 30px 35px 30px;
+  }
+  &__moreTit {
+    display: none;
+    border-top:1px solid #eaeaea;
+    padding-top:20px;
+    font-size:18px;
+    letter-spacing:-0.45px;
+    color:$black-two;
+  }
+  input[type="checkbox"]+label {
+    white-space:nowrap;
+    margin-top:19px;
+    &:not(:last-of-type) {
+      margin-right:35px;
+    }
+  }
+  .table {
+    margin-top:12px;
+    tbody tr {
+      th,td {
+        height:60px;
+        padding:19px 0 15px 23px;
+        font-size:15px;
+      }
+      td {padding-top:0}
+    }
+  }
+  &__close {
+    display:block;
+    @include txtHidden();
+    @include iconBtnClose;
+    position:absolute;
+    right:25px;
+    bottom:28px;
+  }
+}
+
+.searchResult {
+  width:1100px;
+  margin:0 auto;
+  text-align:left;
+  &__item {
+    display:inline-block;
+    border:1px solid $medium-blue;
+    padding:8px 21px 9px 21px;
+    border-radius:15px;
+    box-shadow:1.2px 1.6px 7px 0 rgba(8, 77, 161, 0.18);
+    font-size:15px;
+    @include font("medium");
+    color:$medium-blue;
+    background:#fff;
+    line-height:1;
+    height:32px;
+    margin-top:20px;
+    &:not(:last-of-type) {
+      margin-right:16px;
+    }
+  }
+  &__x {
+    font-size:0;
+    &:before {
+      content:"";
+      display:inline-block;
+      vertical-align:middle;
+      @include iconX;
+      margin-left:15px;
+      position:relative;
+      top:-2px;
+    }
+  }
+}

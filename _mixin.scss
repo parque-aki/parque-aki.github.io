@@ -1,0 +1,154 @@
+@mixin inline-block(){
+    display:inline-block;zoom:1;*display:inline;
+}
+
+@mixin txtHidden(){
+    overflow:hidden;
+    display:inline-block;*display:inline; zoom:1;
+    text-indent:-9999px; white-space:nowrap; line-height:0;
+}
+
+@mixin txtHide(){
+    position:absolute !important;
+    width:0 !important;
+    height:0 !important;
+    display:block !important;
+    font-size:0 !important;
+    line-height:0 !important;
+    overflow:hidden !important;
+}
+
+//...한줄처리
+@mixin ellipsis(){
+    overflow:hidden; white-space:nowrap !important;
+    text-overflow:ellipsis; -o-text-overflow:ellipsis; word-wrap:normal !important;
+}
+// 말주림 2줄
+@mixin ellipsis_multi($textLine:2,$txtHeight:1.5em) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $textLine;
+    -webkit-box-orient: vertical;
+    word-wrap:break-word;
+    line-height:$txtHeight;
+    max-height: ($txtHeight * $textLine);
+}
+@mixin before-middle() {
+    vertical-align: middle;
+    text-align:center;
+    &:before {
+        content:"";
+        display:inline-block;
+        height:100%;
+        width:0;
+        vertical-align: middle;
+        font-size:0;
+        //margin-left:-4px; //폰트마진fix
+    }
+}
+
+@mixin after-middle(){
+  vertical-align: middle;
+  &:after {
+    content:"";
+    display:inline-block;
+    height:100%;
+    width:0;
+    vertical-align: middle;
+    font-size:0;
+    //margin-left:-4px; //폰트마진fix
+  }
+}
+
+//clear처리
+@mixin clearFix(){
+    clear:both;
+    &:after {content:" "; display:table;}
+    &:after {clear:both;}
+}
+
+@mixin cell-middle{
+    display: table-cell;
+    vertical-align: middle;
+}
+legend {
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    text-indent: -9999px;
+    white-space: nowrap;
+    line-height: 0;
+    width:0;height:0;
+    font-size:0;
+}
+
+
+// mediaquery
+@mixin respond-to($media) {
+    @if $media == mobile {
+        @media only screen and (max-width: $tabletSize - 1) { @content; }
+    }
+    @else if $media == tablet {
+        @media only screen and (min-width: $tabletSize) and (max-width: $pcSize - 1) { @content; }
+    }
+    @else if $media == pc {
+        @media only screen and (min-width: $pcSize) { @content; }
+    }
+    @else if $media == max-pc {
+        @media only screen and (max-width: $pcSize - 1) { @content; }
+    }
+    @else if $media == min-tablet {
+        @media only screen and (min-width: $tabletSize) { @content; }
+    }
+    @else if $media == max-mobile {
+        @media only screen and (max-width: $mobileSize) { @content; }
+    }
+}
+
+
+
+.clearFix {
+    @include clearFix();
+}
+
+.icon {
+    position:relative;
+    overflow:hidden;
+    display:inline-block;*display:inline; zoom:1;
+    text-indent:-9999px; white-space:nowrap; line-height:0;
+    vertical-align:middle;
+}
+
+.txtHidden {@include txtHidden()}
+.txtHide {position:absolute;left:-100%;top:-100%;width:0;height:0;display:block;font-size:0;line-height:0;overflow:hidden;}
+
+
+@mixin font($weight:"regular"){
+    @if($weight == "thin") {
+        font-family:"notokr-thin";
+        //font-family:"notokr-regular"
+    }
+    @if($weight == "light") {
+        font-family:"notokr-light"
+        //font-family:"notokr-regular"
+    }
+    @if($weight == "dLight") {
+        font-family:"notokr-demilight"
+    }
+    @if($weight == "bold") {
+        font-family:"notokr-bold"
+    }
+    @if($weight == "black") {
+        font-family:"notokr-black"
+    }
+    @if($weight == "regular") {
+        font-family:"notokr-regular"
+    }
+    @if($weight == "medium") {
+        font-family:"notokr-medium";
+
+    }
+    font-weight:normal;
+}

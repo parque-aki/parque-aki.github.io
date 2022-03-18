@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+.bbsThumb {
+  display: flex;
+  width: 1000px;
+  margin: 0 auto;
+  gap: 50px;
+  flex-wrap: wrap;
+  &__item {
+    width: 300px;
+  }
+  &__date {
+    font-size:14px;
+    font-weight: bold;
+    color: #000;
+    margin-top: 25px;
+    display: block;
+  }
+  &__title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    @include ellipsis;
+  }
+  &__img {
+    height: 168px;
+    width: 100%;
+    background-size: cover;
+  }
+}
+
+.moreBtn {
+  font-size: 14px;
+  @include font("bold");
+  &:before {
+    content: "";
+    background: url("/images/common/icon_arrow.png");
+    width: 10px;
+    height: 36px;
+    display: block;
+    margin: 0 auto 15px;
+  }
+
+}

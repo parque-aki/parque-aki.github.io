@@ -1,0 +1,140 @@
+@charset "UTF-8";
+.selectBox {
+  height:40px;
+  background-color:#fff;
+}
+input.inp,textarea.inp {
+  display:inline-block;
+  box-shadow: none;
+  border-radius: 0;
+  border:1px solid $white-two;
+  min-height:40px;
+  min-width:200px;
+  font-size: 16px;
+  padding:0 35px 0 15px;
+  &.-numType {
+    width:100%;
+    text-align:right;
+  }
+  &:disabled,
+  &:read-only,
+  &[aria-readonly="true"]{
+    cursor:none;
+    pointer-events: none;
+    background:#f8f8f8 !important;
+    color:#cccccc;
+  }
+}
+
+select.inp {
+  background:#fff;
+  display:inline-block;
+  min-width:200px;
+  height:38px;
+  padding:0 35px 0 15px;
+  font-size:16px;
+  color:$black-three;
+  border:none;
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  cursor: pointer;
+  &[disabled="disabled"] {
+    cursor:none;
+    pointer-events: none;
+    background:#f8f8f8 !important;
+    color:#999;
+    &+.iconSelectBox {opacity: .3}
+  }
+  &::-ms-expand{
+    display:none;
+  }
+}
+textarea.inp {
+  resize: none;
+  padding:15px;
+  font-size:16px;
+  color:#717171;
+}
+
+input[type="checkbox"]+label {
+  position: relative;
+  color: $warm-grey-four;
+  font-size: 15px;
+  display: inline-block;
+  &:before {
+    content: "";
+    display: inline-block;
+    border: 1px solid $white-two;
+    border-radius: 6px;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 10px;
+    transition: all .2s;
+    background: #fff;
+  }
+  &:after {
+    content: "";
+    display: block;
+    @include iconChk;
+    position: absolute;
+    left: 6px;
+    top: 7px;
+  }
+}
+input[type="checkbox"]:checked+label {
+  color:$black-three;
+  &:before {
+    background:#2d71c4;
+    border-color:#2d71c4;
+  }
+  &:after {
+    @include iconChkActive();
+  }
+}
+input[type="checkbox"]:disabled+label,
+input[type="checkbox"][aria-readonly="true"]+label{
+  cursor: default;
+  pointer-events: none;
+  &:before {
+    background:#f2f5f8;
+  }
+}
+
+
+input.datepicker {
+  color:#ccc;
+  padding-left:15px;
+  padding-right:52px;
+  font-size:16px;
+  &__arrow {
+    display:inline-block;
+    font-size:16px;
+    margin:0 10px 0 5px;
+    vertical-align: middle;
+  }
+  &+.iconDatepicker {
+    margin-left:-35px;
+    margin-right:20px;
+  }
+  &+.ui-datepicker-trigger {
+    margin-left:-40px;
+    margin-right:20px;
+    &+.iconDatepicker {display:none}
+  }
+}
+.iconDatepicker+.selectBox {
+  margin-left:-5px;
+}
+
+
+
+.inpUnit {
+  position: relative;
+  .controlGrayBox__inpType {
+    position: absolute;
+    right: 10px;
+    top:10px;
+  }
+}

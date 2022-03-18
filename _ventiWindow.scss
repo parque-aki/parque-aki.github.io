@@ -1,0 +1,388 @@
+@charset "UTF-8";
+
+
+//2020.8.31 환기창 제어설정
+.ventiWindow {
+  &__tit {
+    font-size:20px;
+    @include font("bold");
+    color:$black-two;
+    .sunChk {float:right;margin-top:-10px}
+  }
+  .table {
+    width:100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border:1px solid #e4e4e4;
+    border-bottom:none;
+    border-left:none;
+    tbody {
+      tr {
+        td,th {
+          height:45px;
+          border-bottom:1px solid #e4e4e4;
+          text-align:center;
+          font-size:14px;
+          border-left:1px solid #e4e4e4;
+          padding:0 10px;
+        }
+        th {
+          text-align:left;
+          padding-left:25px;
+        }
+
+      }
+    }
+    .selectBox__inp {
+      min-width:0;
+      padding:0 30px 0 8px;
+      font-size: 14px;
+    }
+    .selectBox {
+      width:100%;min-width:0;
+      &.-readOnly {
+        pointer-events: none;
+        cursor: none;
+        .selectBox__inp { color:#ddd;}
+      }
+    }
+    .inp {
+      display: inline-block;
+      position: relative;
+      height: 40px;
+      border: 1px solid #ddd;
+      vertical-align: middle;
+      width:100%;
+      padding:0 8px;
+      text-align:center;
+      &:read-only {
+        color:#dbdbdb;;
+      }
+    }
+    &__del {
+      color:$nice-blue-two;
+      font-size:14px;
+      @include font("medium");
+      &:before {
+        content:"";
+        display:inline-block;
+        @include iconX;
+        margin-right:5px;
+      }
+    }
+  }
+  .graphArea {
+    display: none;
+    &.-active {
+      display: block;
+    }
+  }
+}
+
+
+//2020.8.31 툴팁
+.toolTip {
+  position: relative;
+  display:inline-block;
+  cursor: pointer;
+  &:after {
+    content:"";
+    display: inline-block;
+    @include iconToolTip();
+    vertical-align: middle;
+  }
+  &:focus {
+    .toolTip__box {
+      opacity: 1;
+      visibility: visible;
+      z-index: 100;
+      text-align:left;
+    }
+  }
+  &__box {
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s;
+    position: absolute;
+    top:-8px;
+    margin-left:30px;
+    color:#fff;
+    background-color:$medium-blue;
+    padding:14px 16px;
+    font-size:14px;
+    display:inline-block;
+    z-index:10;
+    &:before {
+      content:"";
+      display:block;
+      position:absolute;
+      top:14px;
+      left:-16px;
+      width: 0;height: 0;
+      border-top:8px solid transparent;
+      border-bottom:8px solid transparent;
+      border-right: 8px solid $medium-blue;
+      border-left: 8px solid  transparent;
+    }
+  }
+  &__tit {
+    display:block;
+    @include font("medium");
+    margin-bottom:8px;
+  }
+  &__txt {
+    display:block;
+    @include font();
+  }
+}
+
+.sunChk {
+  @include clearFix();
+  vertical-align: middle;
+  &__tit {
+    display:inline-block;
+    font-size:14px;
+    color:$black-two;
+    @include font();
+    margin-right:15px;
+  }
+  &__item {
+    display:inline-block;
+    vertical-align: middle;
+    font-size:14px;
+    color:$warm-grey-four;
+    @include font();
+    &:before {
+      content: "";
+      display:inline-block;
+      margin-right:5px;
+      vertical-align: middle;
+      position: relative;
+      top:-2px;
+    }
+    &.-sunrise:before {@include iconSunrise()}
+    &.-sunset:before {@include iconSunset()}
+  }
+}
+
+.openChkBox {
+  border:1px solid #e4e4e4;
+  height:46px;
+  justify-content: space-between;
+  align-items: center;
+  display:flex;
+  padding:0 25px;
+  &.-active {
+    .openChkBox__tit {
+      @include font("medium");
+      color:$nice-blue-two;
+    }
+  }
+  &__btn {
+    display:inline-block;
+    position: relative;
+    cursor: pointer;
+    &:before {
+      content:"OPEN";
+      color:$nice-blue-two;
+      @include font("medium");
+      font-size:14px;
+      border:2px solid $nice-blue-two;
+      width:90px;
+      height:32px;
+      line-height:32px;
+      display: inline-block;
+      border-radius: 16px;
+      text-align:center;
+      padding-right:10px;
+    }
+    &:after {
+      content:"▲";
+      display:inline-block;
+      color:$nice-blue-two;
+      position: absolute;
+      top:11px;
+      right:15px;
+      transition: all .3s;
+      transform: rotate(180deg);
+    }
+  }
+  input:checked+.openChkBox__btn {
+    &:before {
+      content:"CLOSE";
+      background-color:$nice-blue-two;
+      color:#fff;
+    }
+    &:after {
+      top:9px;
+      transform: rotate(0);
+      color:#fff;
+    }
+  }
+}
+table+.openChkBox,
+.openChkBox+.openChkBox,
+.controlGrayBox+.openChkBox {margin-top:-1px}
+
+//기기 사용여부
+.useChk {
+  display:inline-block;
+  vertical-align: middle;
+  margin-left:20px;
+  &__txt {
+    font-size:14px;
+  }
+  &__btn {
+    display:inline-block;
+    @include iconUseOff();
+    cursor: pointer;
+  }
+  input:checked+.useChk__btn {@include iconUseOn(pos)}
+}
+
+
+//체크박스 이미지
+input+.checkBoxSwitch {
+  display:inline-block;
+  cursor: pointer;
+  width:52px;
+  height:26px;
+  background:$pinkish-grey-two;
+  border-radius: 26px;
+  position: relative;
+  transition: background-color .3s;
+  &:after {
+    content:"";
+    display:inline-block;
+    position: absolute;
+    right:4px;
+    top:4px;
+    width:18px;
+    height:18px;
+    border-radius: 50%;
+    background:#fff;
+    transition: right .3s;
+  }
+}
+input:checked+.checkBoxSwitch {
+  background-color:$dark-sky-blue ;
+  &:after {
+    right:30px;
+  }
+}
+
+.controlGrayBox {
+  background:#f8f8f8;
+  padding:30px 15px;
+  display:none;
+  &.-active {
+    display:block;
+  }
+  &__tit {
+    font-size:14px;
+    margin-bottom:15px;
+  }
+  &__label {
+    width:137px;
+    padding-left:14px;
+  }
+  &Sub {
+    display: none;
+    &.-active {
+      display: block;
+    }
+  }
+  &__box {
+    width:100%;
+    height:64px;
+    background:#ededef;
+    display:flex;
+    align-items: center;
+  }
+  &__inp {
+    width:120px;
+    height:40px;
+    position: relative;
+    background:#fff;
+    border:1px solid #dfe3e4;
+    padding:0 25px 0 13px;
+    color:$black-two;
+    &+.controlGrayBox__inpType {margin-right:8px;}
+    &:read-only {
+      color:#ddd;
+      &::placeholder {color:#ddd}
+      &+.controlGrayBox__inpType {color:#ddd;}
+    }
+  }
+  &__inpType {
+    font-size:14px;
+    color:$black-two;
+    margin-left:-23px;
+    position: relative;
+    z-index: 1;
+    margin-right:23px;
+    top:2px;
+  }
+  &__table {
+    width:100%;
+    border-top:2px solid #898989;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-right:1px solid #dbdbdb;
+    th,td {
+      border-bottom:1px solid #dbdbdb;
+      border-left:1px solid #dbdbdb;
+      height:45px;
+      text-align:center;
+    }
+    th {
+      background:#ececec;
+    }
+    thead th {
+      text-align:left;
+      padding-left:14px;
+    }
+  }
+  &__add {
+    display:inline-block;
+    color:$nice-blue-two;
+    float:right;
+    margin-bottom:3px;
+    &:not(:first-of-type) {
+      margin-top:20px;
+    }
+    &:after {
+      content:"";
+      clear:both;
+    }
+    &:before {
+      content:"+";
+      display: inline-block;
+      color:$nice-blue-two;
+
+    }
+  }
+  .selectBox {
+    min-width: 120px;
+    max-width: 120px;
+    background: #fff;
+    select {
+      min-width: 120px;
+      font-size: 14px;
+    }
+  }
+}
+
+.inpUnit {
+  position: relative;
+  .controlGrayBox__inpType {
+    position: absolute;
+    right: 10px;
+    top:10px;
+  }
+
+}
+
+.alignCenter {
+  text-align: center;
+}

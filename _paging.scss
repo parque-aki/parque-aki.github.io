@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+.paging {
+  margin-top:26px;
+  margin-bottom: 60px;
+  text-align:center;
+  width:100%;
+  font-size:0;
+  &__item {
+    display:inline-block;
+    font-size:16px;
+    vertical-align: top;
+    color:#B2B2B2;
+    span {@include txtHidden};
+    &:not(:first-of-type) {
+      margin-left:26px;
+    }
+    &.-active {
+      color:#696969;
+      @include font("bold");
+    }
+  }
+  &+.btnControl {
+    margin-top:25px;
+  }
+}
+
+.iconPageNext {
+  @include iconPagePrev();
+  transform: rotate(180deg);
+}
+.iconPageLast {
+  @include iconPageFirst();
+  transform: rotate(180deg);
+}
